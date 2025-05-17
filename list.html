@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ID Card List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom Material You Dark Theme Colors */
+      :root {
+        --md-sys-color-primary: #80cbc4;
+        --md-sys-color-on-primary: #000000;
+        --md-sys-color-surface: #121212;
+        --md-sys-color-on-surface: #ffffff;
+        --md-sys-color-surface-variant: #1e1e1e;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] min-h-screen flex flex-col items-center px-4 py-8"
+  >
+    <h1 class="text-3xl font-bold mb-6 text-[var(--md-sys-color-primary)]">
+      ID Card List
+    </h1>
+
+    <div class="w-full max-w-5xl overflow-x-auto">
+      <table class="w-full text-left rounded-xl overflow-hidden shadow-md">
+        <thead
+          class="bg-[var(--md-sys-color-surface-variant)] text-[var(--md-sys-color-primary)]"
+        >
+          <tr>
+            <th class="px-4 py-3">Picture</th>
+            <th class="px-4 py-3">Name</th>
+            <th class="px-4 py-3">ID</th>
+            <th class="px-4 py-3">Contact</th>
+            <th class="px-4 py-3">ID Card</th>
+            <th class="px-4 py-3">Data</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-700">
+          <!-- Sample Row -->
+          <tr class="hover:bg-gray-800 transition">
+            <td class="px-4 py-3">
+              <img src="https://i.ibb.co/20F9c5Qv/Photo.jpg" style="width:75px; height:75px; object-fit:cover;" border="0">
+            </td></td>
+            <td class="px-4 py-3">Rajkirat Singh</td>
+            <td class="px-4 py-3">A00170732</td>
+            <td class="px-4 py-3">
+              <a
+                href="tel:+16479659622"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Call</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://everestidentity.xyz/users/raj/index.html"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >View</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://github.com/Itsraj3600/Everest/tree/main/Users/Raj"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Open Folder</a
+              >
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-800 transition">
+            <td class="px-4 py-3">
+              <img src="https://i.ibb.co/Q3WSn0G7/Sanish-Moktan.png" style="width:75px; height:75px; object-fit:cover;" border="0">
+            </td></td>
+            <td class="px-4 py-3">Sanish Moktan</td>
+            <td class="px-4 py-3">A00173807</td>
+            <td class="px-4 py-3">
+              <a
+                href="tel:+14376639035"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Call</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://everestidentity.xyz/users/sanish/index.html"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >View</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://github.com/Itsraj3600/Everest/tree/main/Users/sanish"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Open Folder</a
+              >
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-800 transition">
+            <td class="px-4 py-3">
+              <img src="https://i.ibb.co/S9LRPry/Sneha-Shrestha.png" style="width:75px; height:75px; object-fit:cover;" border="0">
+            </td></td>
+            <td class="px-4 py-3">Sneha Shrestha</td>
+            <td class="px-4 py-3">A00177331</td>
+            <td class="px-4 py-3">
+              <a
+                href="tel:+14377667721"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Call</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://everestidentity.xyz/users/sneha/index.html"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >View</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://github.com/Itsraj3600/Everest/tree/main/Users/sneha"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Open Folder</a
+              >
+            </td>
+          </tr>
+          <!-- Add more rows here -->
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
