@@ -1,0 +1,133 @@
+/* ====== Reset & Base Styles ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Protofo", sans-serif;
+  font-weight: 700; /* bold */
+  letter-spacing: 0.02em; /* Adjust for wider-looking text (~1.5x) */
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+/* ====== Container & Layout ====== */
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: white;
+  min-height: 100vh;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* ====== Header Section ====== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.logo img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.settings img {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+/* ====== College Logo Section ====== */
+.college-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.college-logo img {
+  max-width: 350px;
+  height: auto;
+}
+
+/* ====== ID Card Button ====== */
+.id-card-button {
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  cursor: pointer;
+}
+
+.id-card-left {
+  display: flex;
+  align-items: center;
+}
+
+.id-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.id-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.id-card-button span {
+  color: #14566e; /* updated color */
+  font-size: 20px;
+  font-weight: 900; /* extra bold */
+  margin-left: 18px;
+}
+
+/* Chevron arrow */
+.chevron img {
+  width: 15px;
+  height: 20px;
+}
+
+/* ====== Section Headings ====== */
+.section {
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.section-header {
+  font-size: 20px; /* smaller heading */
+  font-weight: 900; /* extra bold */
+  color: #14566e; /* heading color */
+  background-color: #f1f1f1;
+  padding: 16px;
+  margin: 0 0 8px 0; /* small bottom spacing */
+  border-radius: 8px 8px 0 0; /* rounded top corners */
+}
+
+/* ====== Section Content ====== */
+.section-content {
+  background-color: white;
+  padding: 18px;
+  border-radius: 0 0 8px 8px; /* rounded bottom corners */
+}
+
+.section-content p {
+  color: #555; /* soft grey text */
+  font-size: 14px; /* smaller text */
+  font-weight: 800; /* bold */
+  line-height: 1.4;
+}
+
+/* ====== Utility Classes (Optional) ====== */
+/* Add here if you want reusable helpers like .text-bold, .small-text, etc. */

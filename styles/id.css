@@ -1,0 +1,185 @@
+/* =======================
+   Reset & Base Styles
+======================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+/* =======================
+   Container Layout
+======================= */
+.id-card-container {
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+.id-card {
+  width: 100%;
+  height: 100vh;
+  max-height: 1440px;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* =======================
+   Header Section
+======================= */
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 0 0px; /* Add padding to bring buttons closer to the edges */
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  flex-grow: 1;
+  text-align: center;
+  color: #14566e;
+}
+
+.back-button,
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.back-button {
+  margin-right: auto;
+}
+
+.menu-button {
+  margin-left: auto;
+}
+
+/* =======================
+   GIF Icon
+======================= */
+.gif-icon {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  z-index: 10;
+}
+
+.gif-icon img {
+  width: 70px;
+  height: auto;
+}
+
+/* =======================
+   Logo Section
+======================= */
+.logo-container {
+  margin: 10px 0;
+}
+
+.college-logo {
+  margin-top: 25px;
+  width: 280px;
+  height: auto;
+  display: block;
+}
+
+/* =======================
+   Photo Section
+======================= */
+.photo-container {
+  margin: 10px 0;
+}
+
+.photo-frame {
+  border: 10px solid #ff0000;
+}
+
+.student-photo {
+  top: 8px;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* =======================
+   Student Info Section
+======================= */
+.student-info {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.student-name {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.barcode {
+  margin-bottom: 10px;
+}
+
+.barcode-image {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+}
+
+.student-id {
+  font-size: 30px;
+  color: #555;
+}
+
+/* =======================
+   Footer Section
+======================= */
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 0; /* remove side padding */
+  margin: 0;
+}
+
+.transit-logo {
+  width: 180px;
+  height: auto;
+  margin-left: 0;
+}
+
+.year {
+  font-size: 25px; /* adjust as needed */
+  letter-spacing: 1px;
+  margin-right: 0;
+}
