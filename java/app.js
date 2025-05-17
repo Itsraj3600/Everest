@@ -27,6 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // For now, we'll just leave the "no resources" message
     }
 
+  document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+      document.getElementById('splash-screen').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+    }, 1000); // 1000 milliseconds = 1 second
+  });
+
+
     // Initial checks
 checkForAnnouncements();
 checkForResources();
