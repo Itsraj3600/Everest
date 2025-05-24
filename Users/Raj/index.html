@@ -1,18 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="https://everestidentity.xyz/users/raj/manifest.json" />
-<meta name="theme-color" content="#1e88e5" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<meta name="apple-mobile-web-app-title" content="Everest Identity" />
-<link rel="apple-touch-icon" href="/icons/icon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Manifest & Theme -->
+  <link rel="manifest" href="https://everestidentity.xyz/users/raj/manifest.json" />
+  <meta name="theme-color" content="#1e88e5" />
 
-    <title>Everest Identity</title>
-    <link rel="stylesheet" href="https://everestidentity.xyz/styles/app.css" />
-  </head>
+  <!-- Apple-specific Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Everest Identity" />
+  <link rel="apple-touch-icon" href="/icons/icon.png" />
+
+  <!-- Title & Styles -->
+  <title>Everest Identity</title>
+  <link rel="stylesheet" href="https://everestidentity.xyz/styles/app.css" />
+
+  <!-- PWA Install & Service Worker -->
+  <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('Service Worker registered:', reg))
+          .catch(err => console.error('Service Worker registration failed:', err));
+      });
+    }
+
+    // Handle install prompt
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const installBtn = document.getElementById('installBtn');
+      if (installBtn) installBtn.style.display = 'block';
+
+      installBtn?.addEventListener('click', () => {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+          }
+          deferredPrompt = null;
+        });
+      });
+    });
+  </script>
+</head>
+
   <body>
     <div id="splash-screen">
       <img src="https://everestidentity.xyz/img/logo-circle.png" alt="Logo" class="splash-logo" />
@@ -61,6 +98,8 @@
         </div>
       </div>
     </div>
+    <button id="installBtn" style="display:none;">Install App</button>
+
 
     <script src="https://everestidentity.xyz/users/raj/java/app.js"></script> 
   </body>
