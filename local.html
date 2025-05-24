@@ -51,102 +51,37 @@
     const form = document.getElementById("dataForm");
     const cardList = document.getElementById("cardList");
 
-    let editingId = null;
-
-    menuButton.onclick = () => dropdownMenu.classList.toggle("hidden");
+    menuButton.addEventListener("click", () => {
+      dropdownMenu.classList.toggle("hidden");
+    });
 
     function toggleAddForm() {
-      editingId = null;
-      form.reset();
       form.classList.toggle("hidden");
     }
 
     function handleFormSubmit(event) {
       event.preventDefault();
-      const data = {
-        picture: document.getElementById("picture").value,
-        name: document.getElementById("name").value,
-        id: document.getElementById("id").value,
-        contact: document.getElementById("contact").value,
-        idcard: document.getElementById("idcard").value
-      };
+      const picture = document.getElementById("picture").value;
+      const name = document.getElementById("name").value;
+      const id = document.getElementById("id").value;
+      const contact = document.getElementById("contact").value;
+      const idcard = document.getElementById("idcard").value;
 
-      if (editingId) {
-        const card = document.querySelector(`[data-id='${editingId}']`);
-        card.innerHTML = generateCardHTML(data);
-        card.dataset.id = data.id;
-        editingId = null;
-      } else {
-        const div = document.createElement("div");
-        div.innerHTML = generateCardHTML(data);
-        div.className = "p-4 bg-gray-800 rounded-xl shadow";
-        div.dataset.id = data.id;
-        div.setAttribute("draggable", true);
-        addDragListeners(div);
-        cardList.appendChild(div);
-      }
-      form.classList.add("hidden");
-      form.reset();
-    }
-
-    function generateCardHTML(data) {
-      return `
-        <img src="${data.picture}" alt="" class="w-20 h-20 rounded-full mb-2" />
-        <h2 class="text-xl font-bold">${data.name}</h2>
-        <p>ID: ${data.id}</p>
-        <p>Contact: ${data.contact}</p>
-        <a href="${data.idcard}" target="_blank" class="text-blue-400 underline">View ID Card</a>
-        <button onclick="editCard('${data.id}')" class="mt-2 px-3 py-1 bg-yellow-500 text-black rounded">Edit</button>
+      const card = document.createElement("div");
+      card.className = "bg-[var(--md-sys-color-surface-variant)] p-4 rounded-lg shadow flex flex-col md:flex-row items-center gap-4";
+      card.innerHTML = `
+        <img src="${picture}" alt="${name}" class="w-24 h-24 rounded-full object-cover" />
+        <div class="flex-1">
+          <h2 class="text-xl font-semibold">${name}</h2>
+          <p><strong>ID:</strong> ${id}</p>
+          <p><strong>Contact:</strong> ${contact}</p>
+          <a href="${idcard}" target="_blank" class="text-[var(--md-sys-color-primary)] underline">View ID Card</a>
+        </div>
       `;
-    }
 
-    function editCard(id) {
-      const card = document.querySelector(`[data-id='${id}']`);
-      const lines = card.innerText.split('\n');
-      document.getElementById("picture").value = card.querySelector("img").src;
-      document.getElementById("name").value = lines[0];
-      document.getElementById("id").value = lines[1].split(": ")[1];
-      document.getElementById("contact").value = lines[2].split(": ")[1];
-      document.getElementById("idcard").value = card.querySelector("a").href;
-      editingId = id;
-      form.classList.remove("hidden");
-    }
-
-    function promptDelete() {
-      const id = prompt("Enter ID to delete:");
-      const card = document.querySelector(`[data-id='${id}']`);
-      if (card) card.remove();
-      else alert("No card found with that ID.");
-    }
-
-    function toggleEditMode() {
-      const cards = cardList.querySelectorAll("div[data-id]");
-      cards.forEach(card => card.setAttribute("draggable", true));
-    }
-
-    function addDragListeners(element) {
-      element.addEventListener("dragstart", e => {
-        e.dataTransfer.setData("text/plain", element.dataset.id);
-      });
-
-      element.addEventListener("dragover", e => {
-        e.preventDefault();
-        element.classList.add("drag-over");
-      });
-
-      element.addEventListener("dragleave", () => {
-        element.classList.remove("drag-over");
-      });
-
-      element.addEventListener("drop", e => {
-        e.preventDefault();
-        element.classList.remove("drag-over");
-        const id = e.dataTransfer.getData("text/plain");
-        const dragged = document.querySelector(`[data-id='${id}']`);
-        if (dragged !== element) {
-          cardList.insertBefore(dragged, element);
-        }
-      });
+      cardList.appendChild(card);
+      form.reset();
+      form.classList.add("hidden");
     }
   </script>
 </body>

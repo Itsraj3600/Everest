@@ -1,88 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ID Card List</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root {
-      --md-sys-color-primary: #80cbc4;
-      --md-sys-color-on-primary: #000000;
-      --md-sys-color-surface: #121212;
-      --md-sys-color-on-surface: #ffffff;
-      --md-sys-color-surface-variant: #1e1e1e;
-    }
-    [draggable="true"] {
-      cursor: move;
-    }
-    .drag-over {
-      outline: 2px dashed var(--md-sys-color-primary);
-    }
-  </style>
-</head>
-<body class="bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] min-h-screen flex flex-col px-4 py-6">
-  <div class="flex justify-between items-center w-full max-w-6xl mx-auto mb-6">
-    <h1 class="text-3xl font-bold text-[var(--md-sys-color-primary)]">ID Card List</h1>
-    <div class="relative inline-block text-left">
-      <button id="menuButton" class="p-2 bg-[var(--md-sys-color-primary)] text-black rounded-full focus:outline-none">☰</button>
-      <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-44 bg-gray-800 border border-gray-700 rounded shadow-md z-50">
-        <button onclick="toggleAddForm()" class="block w-full text-left px-4 py-2 hover:bg-gray-700">Add Row</button>
-        <button onclick="toggleEditMode()" class="block w-full text-left px-4 py-2 hover:bg-gray-700">Toggle Sort</button>
-        <button onclick="promptDelete()" class="block w-full text-left px-4 py-2 hover:bg-gray-700">Delete Row</button>
-      </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ID Card List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom Material You Dark Theme Colors */
+      :root {
+        --md-sys-color-primary: #80cbc4;
+        --md-sys-color-on-primary: #000000;
+        --md-sys-color-surface: #121212;
+        --md-sys-color-on-surface: #ffffff;
+        --md-sys-color-surface-variant: #1e1e1e;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] min-h-screen flex flex-col items-center px-4 py-8"
+  >
+    <h1 class="text-3xl font-bold mb-6 text-[var(--md-sys-color-primary)]">
+      ID Card List
+    </h1>
+
+    <div class="w-full max-w-5xl overflow-x-auto">
+      <table class="w-full text-left rounded-xl overflow-hidden shadow-md">
+        <thead
+          class="bg-[var(--md-sys-color-surface-variant)] text-[var(--md-sys-color-primary)]"
+        >
+          <tr>
+            <th class="px-4 py-3">Picture</th>
+            <th class="px-4 py-3">Name</th>
+            <th class="px-4 py-3">ID</th>
+            <th class="px-4 py-3">Contact</th>
+            <th class="px-4 py-3">ID Card</th>
+            <th class="px-4 py-3">Data</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-700">
+          <!-- Sample Row -->
+          <tr class="hover:bg-gray-800 transition">
+            <td class="px-4 py-3">
+              <img src="https://i.ibb.co/20F9c5Qv/Photo.jpg" style="width:75px; height:75px; object-fit:cover;" border="0">
+            </td></td>
+            <td class="px-4 py-3">Rajkirat Singh</td>
+            <td class="px-4 py-3">A00170732</td>
+            <td class="px-4 py-3">
+              <a
+                href="tel:+16479659622"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Call</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://everestidentity.xyz/users/raj/index.html"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >View</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://github.com/Itsraj3600/Everest/tree/main/Users/Raj"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Open Folder</a
+              >
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-800 transition">
+            <td class="px-4 py-3">
+              <img src="https://i.ibb.co/35y7rPnD/photo.png" style="width:75px; height:75px; object-fit:cover;" border="0">
+            </td></td>
+            <td class="px-4 py-3">Gurveen Kaur</td>
+            <td class="px-4 py-3">A00177078</td>
+            <td class="px-4 py-3">
+              <a
+                href="tel:+17059785016"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Call</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://everestidentity.xyz/users/gurveen/index.html"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >View</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://github.com/Itsraj3600/Everest/tree/main/Users/Gurveen"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Open Folder</a
+              >
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-800 transition">
+            <td class="px-4 py-3">
+              <img src="https://i.ibb.co/YFv6LS12/photo.png" style="width:75px; height:75px; object-fit:cover;" border="0">
+            </td></td>
+            <td class="px-4 py-3">Kanchan Rani</td>
+            <td class="px-4 py-3">A00145419</td>
+            <td class="px-4 py-3">
+              <a
+                href="tel:+17053581848"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Call</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://everestidentity.xyz/users/kanchan/index.html"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >View</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://github.com/Itsraj3600/Everest/tree/main/Users/Kanchan"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Open Folder</a
+              >
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-800 transition">
+            <td class="px-4 py-3">
+              <img src="https://i.ibb.co/Q3WSn0G7/Sanish-Moktan.png" style="width:75px; height:75px; object-fit:cover;" border="0">
+            </td></td>
+            <td class="px-4 py-3">Sanish Moktan</td>
+            <td class="px-4 py-3">A00173807</td>
+            <td class="px-4 py-3">
+              <a
+                href="tel:+14376639035"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Call</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://everestidentity.xyz/users/sanish/index.html"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >View</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://github.com/Itsraj3600/Everest/tree/main/Users/Sanish"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Open Folder</a
+              >
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-800 transition">
+            <td class="px-4 py-3">
+              <img src="https://i.ibb.co/S9LRPry/Sneha-Shrestha.png" style="width:75px; height:75px; object-fit:cover;" border="0">
+            </td></td>
+            <td class="px-4 py-3">Sneha Shrestha</td>
+            <td class="px-4 py-3">A00177331</td>
+            <td class="px-4 py-3">
+              <a
+                href="tel:+14377667721"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Call</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://everestidentity.xyz/users/sneha/index.html"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >View</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://github.com/Itsraj3600/Everest/tree/main/Users/Sneha"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Open Folder</a
+              >
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-800 transition">
+            <td class="px-4 py-3">
+              <img src="https://i.ibb.co/HfzrstKW/photo.jpg" style="width:75px; height:75px; object-fit:cover;" border="0">
+            </td></td>
+            <td class="px-4 py-3">Sweety Dhillon</td>
+            <td class="px-4 py-3">A00168294</td>
+            <td class="px-4 py-3">
+              <a
+                href="tel:+14378381671"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Call</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://everestidentity.xyz/users/sweety/index.html"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >View</a
+              >
+            </td>
+            <td class="px-4 py-3">
+              <a
+                href="https://github.com/Itsraj3600/Everest/tree/main/Users/Sweety"
+                class="text-[var(--md-sys-color-primary)] hover:underline"
+                >Open Folder</a
+              >
+            </td>
+          </tr>
+          <!-- Add more rows here -->
+        </tbody>
+      </table>
     </div>
-  </div>
-
-  <form id="dataForm" class="hidden grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-6xl mb-8 bg-[var(--md-sys-color-surface-variant)] p-4 rounded-xl shadow" onsubmit="handleFormSubmit(event)">
-    <input type="text" id="picture" placeholder="Image URL" class="px-3 py-2 rounded bg-gray-800 text-white" required />
-    <input type="text" id="name" placeholder="Name" class="px-3 py-2 rounded bg-gray-800 text-white" required />
-    <input type="text" id="id" placeholder="ID" class="px-3 py-2 rounded bg-gray-800 text-white" required />
-    <input type="tel" id="contact" placeholder="Contact Number" class="px-3 py-2 rounded bg-gray-800 text-white" required />
-    <input type="url" id="idcard" placeholder="ID Card Link" class="px-3 py-2 rounded bg-gray-800 text-white" required />
-    <button type="submit" class="md:col-span-3 px-4 py-2 mt-2 bg-[var(--md-sys-color-primary)] text-black font-bold rounded">Submit</button>
-  </form>
-
-  <div id="cardList" class="w-full max-w-6xl grid gap-4"></div>
-
-  <script>
-    const menuButton = document.getElementById("menuButton");
-    const dropdownMenu = document.getElementById("dropdownMenu");
-    const form = document.getElementById("dataForm");
-    const cardList = document.getElementById("cardList");
-
-    menuButton.addEventListener("click", () => {
-      dropdownMenu.classList.toggle("hidden");
-    });
-
-    function toggleAddForm() {
-      form.classList.toggle("hidden");
-    }
-
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      const picture = document.getElementById("picture").value;
-      const name = document.getElementById("name").value;
-      const id = document.getElementById("id").value;
-      const contact = document.getElementById("contact").value;
-      const idcard = document.getElementById("idcard").value;
-
-      const card = document.createElement("div");
-      card.className = "bg-[var(--md-sys-color-surface-variant)] p-4 rounded-lg shadow flex flex-col md:flex-row items-center gap-4";
-      card.innerHTML = `
-        <img src="${picture}" alt="${name}" class="w-24 h-24 rounded-full object-cover" />
-        <div class="flex-1">
-          <h2 class="text-xl font-semibold">${name}</h2>
-          <p><strong>ID:</strong> ${id}</p>
-          <p><strong>Contact:</strong> ${contact}</p>
-          <a href="${idcard}" target="_blank" class="text-[var(--md-sys-color-primary)] underline">View ID Card</a>
-        </div>
-      `;
-
-      cardList.appendChild(card);
-      form.reset();
-      form.classList.add("hidden");
-    }
-  </script>
-</body>
+  </body>
 </html>
