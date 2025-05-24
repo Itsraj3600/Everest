@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ID Card List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --md-sys-color-primary: #80cbc4;
+      --md-sys-color-on-primary: #000000;
+      --md-sys-color-surface: #121212;
+      --md-sys-color-on-surface: #ffffff;
+      --md-sys-color-surface-variant: #1e1e1e;
+    }
+    [draggable="true"] {
+      cursor: move;
+    }
+    .drag-over {
+      outline: 2px dashed var(--md-sys-color-primary);
+    }
+  </style>
+</head>
+<body class="bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] min-h-screen flex flex-col px-4 py-6">
+  <div class="flex justify-between items-center w-full max-w-6xl mx-auto mb-6">
+    <h1 class="text-3xl font-bold text-[var(--md-sys-color-primary)]">ID Card List</h1>
+    <div class="relative inline-block text-left">
+      <button id="menuButton" class="p-2 bg-[var(--md-sys-color-primary)] text-black rounded-full focus:outline-none">☰</button>
+      <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-44 bg-gray-800 border border-gray-700 rounded shadow-md z-50">
+        <button onclick="toggleAddForm()" class="block w-full text-left px-4 py-2 hover:bg-gray-700">Add Row</button>
+        <button onclick="toggleEditMode()" class="block w-full text-left px-4 py-2 hover:bg-gray-700">Toggle Sort</button>
+        <button onclick="promptDelete()" class="block w-full text-left px-4 py-2 hover:bg-gray-700">Delete Row</button>
+      </div>
+    </div>
+  </div>
+
+  <form id="dataForm" class="hidden grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-6xl mb-8 bg-[var(--md-sys-color-surface-variant)] p-4 rounded-xl shadow" onsubmit="handleFormSubmit(event)">
+    <input type="text" id="picture" placeholder="Image URL" class="px-3 py-2 rounded bg-gray-800 text-white" required />
+    <input type="text" id="name" placeholder="Name" class="px-3 py-2 rounded bg-gray-800 text-white" required />
+    <input type="text" id="id" placeholder="ID" class="px-3 py-2 rounded bg-gray-800 text-white" required />
+    <input type="tel" id="contact" placeholder="Contact Number" class="px-3 py-2 rounded bg-gray-800 text-white" required />
+    <input type="url" id="idcard" placeholder="ID Card Link" class="px-3 py-2 rounded bg-gray-800 text-white" required />
+    <button type="submit" class="md:col-span-3 px-4 py-2 mt-2 bg-[var(--md-sys-color-primary)] text-black font-bold rounded">Submit</button>
+  </form>
+
+  <div id="cardList" class="w-full max-w-6xl grid gap-4"></div>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const form = document.getElementById("dataForm");
+    const cardList = document.getElementById("cardList");
+
+    let editingId = null;
+
+    menuButton.onclick = () => dropdownMenu.classList.toggle("hidden");
+
+    function toggleAddForm() {
+      editingId = null;
+      form.reset();
+      form.classList.toggle("hidden");
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const data = {
+        picture: document.getElementById("picture").value,
+        name: document.getElementById("name").value,
+        id: document.getElementById("id").value,
+        contact: document.getElementById("contact").value,
+        idcard: document.getElementById("idcard").value
+      };
+
+      if (editingId) {
+        const card = document.querySelector(`[data-id='${editingId}']`);
+        card.innerHTML = generateCardHTML(data);
+        card.dataset.id = data.id;
+        editingId = null;
+      } else {
+        const div = document.createElement("div");
+        div.innerHTML = generateCardHTML(data);
+        div.className = "p-4 bg-gray-800 rounded-xl shadow";
+        div.dataset.id = data.id;
+        div.setAttribute("draggable", true);
+        addDragListeners(div);
+        cardList.appendChild(div);
+      }
+      form.classList.add("hidden");
+      form.reset();
+    }
+
+    function generateCardHTML(data) {
+      return `
+        <img src="${data.picture}" alt="" class="w-20 h-20 rounded-full mb-2" />
+        <h2 class="text-xl font-bold">${data.name}</h2>
+        <p>ID: ${data.id}</p>
+        <p>Contact: ${data.contact}</p>
+        <a href="${data.idcard}" target="_blank" class="text-blue-400 underline">View ID Card</a>
+        <button onclick="editCard('${data.id}')" class="mt-2 px-3 py-1 bg-yellow-500 text-black rounded">Edit</button>
+      `;
+    }
+
+    function editCard(id) {
+      const card = document.querySelector(`[data-id='${id}']`);
+      const lines = card.innerText.split('\n');
+      document.getElementById("picture").value = card.querySelector("img").src;
+      document.getElementById("name").value = lines[0];
+      document.getElementById("id").value = lines[1].split(": ")[1];
+      document.getElementById("contact").value = lines[2].split(": ")[1];
+      document.getElementById("idcard").value = card.querySelector("a").href;
+      editingId = id;
+      form.classList.remove("hidden");
+    }
+
+    function promptDelete() {
+      const id = prompt("Enter ID to delete:");
+      const card = document.querySelector(`[data-id='${id}']`);
+      if (card) card.remove();
+      else alert("No card found with that ID.");
+    }
+
+    function toggleEditMode() {
+      const cards = cardList.querySelectorAll("div[data-id]");
+      cards.forEach(card => card.setAttribute("draggable", true));
+    }
+
+    function addDragListeners(element) {
+      element.addEventListener("dragstart", e => {
+        e.dataTransfer.setData("text/plain", element.dataset.id);
+      });
+
+      element.addEventListener("dragover", e => {
+        e.preventDefault();
+        element.classList.add("drag-over");
+      });
+
+      element.addEventListener("dragleave", () => {
+        element.classList.remove("drag-over");
+      });
+
+      element.addEventListener("drop", e => {
+        e.preventDefault();
+        element.classList.remove("drag-over");
+        const id = e.dataTransfer.getData("text/plain");
+        const dragged = document.querySelector(`[data-id='${id}']`);
+        if (dragged !== element) {
+          cardList.insertBefore(dragged, element);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
