@@ -1,18 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="https://everestidentity.xyz/manifest.json" />
-    <meta name="theme-color" content="#1e88e5" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Everest Identity" />
-    <link rel="apple-touch-icon" href="/icons/icon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  
+  <!-- Title -->
+  <title>My ID Card</title>
 
-    <title>My ID Card</title>
-    <link rel="stylesheet" href="https://everestidentity.xyz/styles/id.css" />
-  </head>
+  <!-- Favicon -->
+  <link rel="icon" href="/icons/icon.png" type="image/png" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="https://everestidentity.xyz/styles/id.css" />
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="https://everestidentity.xyz/users/sweety/manifest.json" />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#1e88e5" />
+
+  <!-- Apple Specific Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Everest Identity" />
+  <link rel="apple-touch-icon" href="/icons/icon.png" />
+
+  <!-- iOS Splash Screens (optional) -->
+  <!-- Add more sizes if you want to support different devices -->
+  <link rel="apple-touch-startup-image" href="/icons/splash.png" />
+
+  <!-- Open Graph for sharing -->
+  <meta property="og:title" content="My ID Card" />
+  <meta property="og:description" content="View your Canadore College ID card securely." />
+  <meta property="og:image" content="https://everestidentity.xyz/img/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://everestidentity.xyz/" />
+
+  <!-- WebKit/Apple-specific fixes -->
+  <style>
+    body {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+
   <body>
     <div class="id-card">
       <!-- Header -->
