@@ -5,8 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased; /* iOS font rendering */
+  font-family: Arial, sans-serif;
 }
 
 html,
@@ -14,10 +13,6 @@ body {
   width: 100%;
   height: 100%;
   background-color: #f5f5f5;
-  -webkit-touch-callout: none; /* prevent iOS long press */
-  -webkit-user-select: none;
-  -webkit-overflow-scrolling: touch;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 /* =======================
@@ -27,12 +22,12 @@ body {
   width: 100%;
   max-width: 390px;
   margin: 0 auto;
-  padding: 10px;
 }
 
 .id-card {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 1440px;
   background-color: white;
   overflow: hidden;
   position: relative;
@@ -47,16 +42,18 @@ body {
 /* =======================
    Header Section
 ======================= */
+
 .header {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
+  padding: 0 0px; /* Add padding to bring buttons closer to the edges */
 }
 
 .header h1 {
-  font-size: 5vw;
+  font-size: 20px;
   font-weight: 900;
   letter-spacing: 0.5px;
   flex-grow: 1;
@@ -70,8 +67,16 @@ body {
   border: none;
   cursor: pointer;
   padding: 5px;
-  font-size: 6vw;
+  font-size: 24px;
   line-height: 1;
+}
+
+.back-button {
+  margin-right: auto;
+}
+
+.menu-button {
+  margin-left: auto;
 }
 
 /* =======================
@@ -85,20 +90,20 @@ body {
 }
 
 .gif-icon img {
-  width: 60px;
+  width: 70px;
   height: auto;
 }
 
 /* =======================
    Logo Section
-======================= */
+======================= */a
 .logo-container {
   margin: 10px 0;
 }
 
 .college-logo {
   margin-top: 25px;
-  width: 80%;
+  width: 280px;
   height: auto;
   display: block;
 }
@@ -108,20 +113,20 @@ body {
 ======================= */
 .photo-container {
   margin: 10px 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 .photo-frame {
-  border: 8px solid #ff0000;
+  border: 10px solid #ff0000;
 }
 
 .student-photo {
-  width: 90%;
-  max-width: 300px;
-  height: auto;
+  top: 8px;
+  width: 400px;
+  height: 400px;
   object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
   border: none;
 }
 
@@ -134,7 +139,7 @@ body {
 }
 
 .student-name {
-  font-size: 6vw;
+  font-size: 30px;
   margin-bottom: 10px;
 }
 
@@ -143,58 +148,78 @@ body {
 }
 
 .barcode-image {
-  width: 80%;
+  width: 100%;
   max-width: 280px;
   height: auto;
 }
 
 .student-id {
-  font-size: 5.5vw;
+  font-size: 30px;
   color: #555;
 }
 
 /* =======================
    Footer Section
 ======================= */
+
 .header-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   width: 100%;
+  padding: 0; /* remove side padding */
+  margin: 0;
 }
 
 .transit-logo {
-  width: 40%;
+  width: 180px;
   height: auto;
+  margin-left: 0;
 }
 
 .year {
-  font-size: 5vw;
+  font-size: 25px; /* adjust as needed */
   letter-spacing: 1px;
+  margin-right: 0;
 }
 
 /* =======================
-   Responsive Queries
+   iOS & Mobile Responsiveness Fix
 ======================= */
-@media (max-width: 600px) {
-  .header h1,
-  .student-name,
-  .student-id,
-  .year {
-    font-size: 5vw;
-  }
 
-  .back-button,
-  .menu-button {
-    font-size: 6vw;
-  }
+/* Ensure proper scaling on mobile (iOS, Android, etc.) */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
-  .student-photo {
-    width: 90%;
-    max-width: 260px;
-  }
+/* Enable scrolling if content overflows on small screens */
+body {
+  overflow-y: auto;
+}
 
-  .barcode-image {
-    max-width: 220px;
-  }
+/* Ensure inner content scrolls on small screens */
+.id-card {
+  height: auto;
+  min-height: 100vh;
+  max-height: none;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Make large images responsive */
+.student-photo,
+.college-logo,
+.barcode-image,
+.transit-logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Allow layout to shrink on smaller screens */
+.id-card-container {
+  padding: 10px;
 }
