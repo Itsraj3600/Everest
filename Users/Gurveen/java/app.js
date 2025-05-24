@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const idCardButton = document.querySelector(".id-card-button");
   idCardButton.addEventListener("click", function () {
-    window.location.href = "https://everestidentity.xyz/users/sneha/id.html";
+    window.location.href = "https://everestidentity.xyz/users/gurveen/id.html";
   });
 });
 
