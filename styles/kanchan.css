@@ -48,7 +48,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   padding: 0 0px; /* Add padding to bring buttons closer to the edges */
 }
 
