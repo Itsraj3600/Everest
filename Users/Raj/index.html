@@ -3,24 +3,34 @@
   <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- Manifest & Theme -->
+
+  <!-- Title -->
+  <title>Everest Identity</title>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="https://everestidentity.xyz/styles/app.css" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://everestidentity.xyz/img/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://everestidentity.xyz/img/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://everestidentity.xyz/img/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="https://everestidentity.xyz/img/favicon/site.webmanifest" />
+  <link rel="shortcut icon" href="https://everestidentity.xyz/img/favicon/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="192x192" href="https://everestidentity.xyz/img/favicon/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="https://everestidentity.xyz/img/favicon/android-chrome-512x512.png" />
+
+  <!-- PWA Manifest -->
   <link rel="manifest" href="https://everestidentity.xyz/users/raj/manifest.json" />
   <meta name="theme-color" content="#1e88e5" />
 
-  <!-- Apple-specific Meta Tags -->
+  <!-- Apple-specific Meta -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="Everest Identity" />
-  <link rel="apple-touch-icon" href="/icons/icon.png" />
+  <link rel="apple-touch-icon" href="https://everestidentity.xyz/img/favicon/apple-touch-icon.png" />
 
-  <!-- Title & Styles -->
-  <title>Everest Identity</title>
-  <link rel="stylesheet" href="https://everestidentity.xyz/styles/app.css" />
-
-  <!-- PWA Install & Service Worker -->
+  <!-- PWA Install Script -->
   <script>
-    // Register service worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js')
@@ -29,7 +39,6 @@
       });
     }
 
-    // Handle install prompt
     let deferredPrompt;
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
@@ -49,6 +58,7 @@
     });
   </script>
 </head>
+
 
   <body>
     <div id="splash-screen">
