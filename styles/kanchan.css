@@ -44,7 +44,7 @@ body {
 ======================= */
 
 .header {
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,7 +53,7 @@ body {
 }
 
 .header h1 {
-  font-size: 20px;
+  font-size: 100px;
   font-weight: 900;
   letter-spacing: 0.5px;
   flex-grow: 1;
@@ -90,14 +90,14 @@ body {
 }
 
 .gif-icon img {
-  width: 70px;
+  width: 60px;
   height: auto;
 }
 
 /* =======================
    Logo Section
-======================= */a
-.logo-container {
+======================= */
+a .logo-container {
   margin: 10px 0;
 }
 
