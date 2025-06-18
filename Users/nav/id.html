@@ -2,17 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="https://everestidentity.xyz/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Title -->
+    <title>My ID Card</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/icons/icon.png" type="image/png" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://everestidentity.xyz/styles/id.css" />
+
+    <!-- Web App Manifest -->
+    <link
+      rel="manifest"
+      href="https://everestidentity.xyz/users/nav/manifest.json"
+    />
+
+    <!-- Theme Color -->
     <meta name="theme-color" content="#1e88e5" />
+
+    <!-- Apple Specific Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Everest Identity" />
     <link rel="apple-touch-icon" href="/icons/icon.png" />
 
-    <title>My ID Card</title>
-    <link rel="stylesheet" href="https://everestidentity.xyz/styles/id.css" />
+    <!-- iOS Splash Screens (optional) -->
+    <!-- Add more sizes if you want to support different devices -->
+    <link rel="apple-touch-startup-image" href="/icons/splash.png" />
+
+    <!-- Open Graph for sharing -->
+    <meta property="og:title" content="My ID Card" />
+    <meta
+      property="og:description"
+      content="View your Canadore College ID card securely."
+    />
+    <meta
+      property="og:image"
+      content="https://everestidentity.xyz/img/og-image.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://everestidentity.xyz/" />
+
+    <!-- WebKit/Apple-specific fixes -->
+    <style>
+      body {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
   </head>
+
   <body>
     <div class="id-card">
       <!-- Header -->
@@ -73,7 +120,7 @@
       <div class="photo-container">
         <div class="photo-frame">
           <img
-            src="https://everestidentity.xyz/users/raj/photo.png"
+            src="https://everestidentity.xyz/users/nav/photo.png"
             alt="Student Photo"
             class="student-photo"
           />
@@ -82,17 +129,17 @@
 
       <!-- Student Info -->
       <div class="student-info">
-        <p class="student-name">Rajkirat Singh</p>
+        <p class="student-name">Navdeep Kaur</p>
         <div class="barcode">
           <img
-            src="https://everestidentity.xyz/img/barcode.png"
+            src="https://everestidentity.xyz/users/nav/barcode.png"
             alt="Student Barcode"
             class="barcode-image"
           />
         </div>
-        <p class="student-id">A00170732</p>
+        <p class="student-id">A00171633</p>
       </div>
-      <br /><br />
+      
 
       <!-- Footer -->
       <div class="header-row">
@@ -104,6 +151,6 @@
         <span class="year">2024 - 2025</span>
       </div>
     </div>
-    <script src="https://everestidentity.xyz/users/raj/java/id.js"></script>
+    <script src="https://everestidentity.xyz/users/nav/java/id.js"></script>
   </body>
 </html>
