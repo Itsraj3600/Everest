@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Title -->
+    <title>My ID Card</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/icons/icon.png" type="image/png" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://everestidentity.xyz/styles/apple.css" />
+
+    <!-- Web App Manifest -->
+    <link
+      rel="manifest"
+      href="https://everestidentity.xyz/users/Navpreet/manifest.json"
+    />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1e88e5" />
+
+    <!-- Apple Specific Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Everest Identity" />
+    <link rel="apple-touch-icon" href="/icons/icon.png" />
+
+    <!-- iOS Splash Screens (optional) -->
+    <!-- Add more sizes if you want to support different devices -->
+    <link rel="apple-touch-startup-image" href="/icons/splash.png" />
+
+    <!-- Open Graph for sharing -->
+    <meta property="og:title" content="My ID Card" />
+    <meta
+      property="og:description"
+      content="View your Canadore College ID card securely."
+    />
+    <meta
+      property="og:image"
+      content="https://everestidentity.xyz/img/og-image.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://everestidentity.xyz/" />
+
+    <!-- WebKit/Apple-specific fixes -->
+    <style>
+      body {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="id-card">
+      <!-- Header -->
+      <div class="header">
+        <button class="back-button" id="customBackButton">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+        </button>
+        <h1>My ID card</h1>
+        <button class="menu-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="1" />
+            <circle cx="12" cy="5" r="1" />
+            <circle cx="12" cy="19" r="1" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Gif Icon -->
+      <div class="gif-icon">
+        <img
+          src="https://everestidentity.xyz/img/animated.gif"
+          alt="Animated GIF"
+        />
+      </div>
+
+      <!-- College Logo -->
+      <div class="logo-container">
+        <img
+          src="https://everestidentity.xyz/img/canadore-logo.png"
+          alt="Canadore College"
+          class="college-logo"
+        />
+      </div>
+
+      <!-- Photo Container -->
+      <div class="photo-container">
+        <div class="photo-frame">
+          <img
+            src="https://everestidentity.xyz/users/Navpreet/photo.png"
+            alt="Student Photo"
+            class="student-photo"
+          />
+        </div>
+      </div>
+
+      <!-- Student Info -->
+      <div class="student-info">
+        <p class="student-name">Sandeep Kaur</p>
+        <div class="barcode">
+          <img
+            src="https://everestidentity.xyz/users/Navpreet/barcode.png"
+            alt="Student Barcode"
+            class="barcode-image"
+          />
+        </div>
+        <p class="student-id">A00168294</p>
+      </div>
+      
+
+      <!-- Footer -->
+      <div class="header-row">
+        <img
+          src="https://everestidentity.xyz/img/transit-logo.png"
+          alt="Transit Logo"
+          class="transit-logo"
+        />
+        <span class="year">2024 - 2025</span>
+      </div>
+    </div>
+    <script src="https://everestidentity.xyz/users/Navpreet/java/id.js"></script>
+  </body>
+</html>
