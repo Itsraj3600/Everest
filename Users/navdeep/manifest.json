@@ -1,11 +1,14 @@
 {
   "name": "Everest Identity",
-  "short_name": "Everest Identity",
+  "short_name": "Everest ID",
   "start_url": "https://everestidentity.xyz/users/navdeep/index.html",
+  "scope": "/users/navdeep/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1e88e5",
   "description": "Everest Identity",
+  "lang": "en",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icons/icon-192.png",
