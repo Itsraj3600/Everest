@@ -1,0 +1,23 @@
+{
+  "greeting": "Hi",
+  "name": "Simran",
+  "greetingText": "It's your special day!!! :D",
+  "text1": "This is not your birthday present—it's just a little something to make you smile today :)",
+  "textInChatBox": "Happy Birthday Simu!! Yeee! Many many happy blah blah...",
+  "sendButtonLabel": "Send",
+  "text2": "That's what I was gonna do.",
+  "text3": "But then I stopped.",
+  "text4": "I realised, I need to do something",
+  "text4Adjective": "special",
+  "text5Entry": "Because,",
+  "text5Content": "You are very Special",
+  "smiley": ":)",
+  "bigTextPart1": "S",
+  "bigTextPart2": "O",
+  "imagePath": "img/DP.png",
+  "wishHeading": "Happy Birthday!",
+  "outroText": "The real surprise is something I'll give you in person.\nOkay, now come back and tell me if you liked it.",
+  "replayText": "Or click, if you want to watch it again.",
+  "outroSmiley": ":)",
+  "wishText": "I will always be with you! ;)"
+}
